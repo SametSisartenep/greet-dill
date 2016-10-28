@@ -1,0 +1,19 @@
+cppflags = -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=700 $
+        -D_POSIX_C_SOURCE=200809L
+cflags = -Wall -Wextra -Werror -std=c99 -Wpedantic -fpie
+ldflags = -pie -pipe -pedantic
+libs = -ldill -ldsock
+
+cc = $${CC:-cc}
+
+rule cco
+  command = ${cc} -c $cppflags $cflags -o $out $in
+  description = CCO $out
+
+rule ccl
+  command = ${cc} $ldflags $libs -o $out $in
+  description = CCL $out
+
+build greetserver.o: cco greetserver.c
+
+build greetserver: ccl greetserver.o | greetserver.o
