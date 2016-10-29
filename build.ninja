@@ -17,3 +17,7 @@ rule ccl
 build greetserver.o: cco greetserver.c
 
 build greetserver: ccl greetserver.o | greetserver.o
+
+build replying.o: cco replying.c
+
+build replying: ccl replying.o | replying.o
