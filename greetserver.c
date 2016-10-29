@@ -7,15 +7,22 @@
 #include <libdill.h>
 #include <dsock.h>
 
+#define PORT 5555
+
 int
 main(int argc, char *argv[])
 {
 	ipaddr addr;
-	uint16_t port = 5555;
+	uint16_t port = PORT;
 	int rc, ls, s;
 
 	if (argc > 1) {
-		port = atoi(argv[1]);
+		int tmp = atoi(argv[1]);
+		if (tmp > 0 && tmp < 65536) {
+			port = tmp;
+		} else {
+			fprintf(stderr, "Invalid port. Using default at %d\n", PORT);
+		}
 	}
 
 	rc = ipaddr_local(&addr, NULL, port, 0);
