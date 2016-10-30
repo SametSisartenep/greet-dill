@@ -4,3 +4,7 @@ ldflags = -pie -pipe
 build parallel.o: cco parallel.c
 
 build parallel: ccl parallel.o | parallel.o
+
+build deadline.o: cco deadline.c
+
+build deadline: ccl deadline.o | deadline.o
