@@ -1,0 +1,6 @@
+cflags = -Wall -Wextra -Werror -fpie
+ldflags = -pie -pipe
+
+build parallel.o: cco parallel.c
+
+build parallel: ccl parallel.o | parallel.o
