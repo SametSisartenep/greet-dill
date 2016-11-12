@@ -1,5 +1,5 @@
-cflags = -Wall -Wextra -Werror -fpie
-ldflags = -pie -pipe
+cflags = -Wall -Wextra -Werror -fpie -std=gnu99 -Wpedantic
+ldflags = -pie -pipe -pedantic
 
 build parallel.o: cco parallel.c
 
@@ -8,3 +8,7 @@ build parallel: ccl parallel.o | parallel.o
 build deadline.o: cco deadline.c
 
 build deadline: ccl deadline.o | deadline.o
+
+build communicating.o: cco communicating.c
+
+build communicating: ccl communicating.o | communicating.o
