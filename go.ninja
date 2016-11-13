@@ -12,3 +12,7 @@ build deadline: ccl deadline.o | deadline.o
 build communicating.o: cco communicating.c
 
 build communicating: ccl communicating.o | communicating.o
+
+build multi-process.o: cco multi-process.c
+
+build multi-process: ccl multi-process.o | multi-process.o

@@ -22,4 +22,4 @@ build replying.o: cco replying.c
 
 build replying: ccl replying.o | replying.o
 
-subninja parallel.ninja
+subninja go.ninja
